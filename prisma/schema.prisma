@@ -3,7 +3,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["mongoDb"]
 }
 
 datasource db {
@@ -49,6 +48,7 @@ model Session {
   sessionToken String @unique
   userId String @db.ObjectId
   expires DateTime
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
